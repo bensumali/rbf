@@ -213,6 +213,9 @@ body {
 .rbf-tour-dates-event-date, .rbf-tour-dates-event-location, .rbf-tour-dates-event-links-container {
     display: inline-block;
 }
+.rbf-tour-dates-tour-event-photo {
+    position: relative;
+}
 .rbf-tour-dates-event-container {
     margin-bottom: 20px;
 }
@@ -248,8 +251,49 @@ body {
     width: 100%;
 }
 .rbf-tour-dates-tour-name {
+    display: inline-block;
     font-weight: 800;
+    position: relative;
     text-transform: uppercase;
+}
+.rbf-tour-dates-tour-cancelled-postponed {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    font-size: 14px;
+    left: -10px;
+    padding: 2px;
+    position: absolute;
+    top: 5px;
+    transform: rotate(-30deg);
+}
+.rbf-tour-dates-tour-cancelled-postponed.postponed {
+    background-color: #f8f100;
+    color: black;
+}
+.rbf-tour-dates-tour-cancelled-postponed.cancelled {
+    background-color: #E61E51;
+    color: white;
+}
+.rbf-tour-dates-tour-cancelled-postponed-poster {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(20deg);
+    font-weight: bold;
+    font-size: 30px;
+    padding: 5px 10px;
+}
+.rbf-tour-dates-tour-cancelled-postponed-poster.postponed {
+    background-color: #f8f100;
+    color: black;
+}
+.rbf-tour-dates-tour-cancelled-postponed-poster.cancelled {
+    background-color: #E61E51;
+    color: white;
+}
+.rbf-tour-dates-tour-message {
+    font-size: 14px;
+    font-style: italic;
 }
 .rbf-tour-dates-tour-container {
     margin-bottom: 50px;

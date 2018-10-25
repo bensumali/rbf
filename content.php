@@ -40,13 +40,41 @@
                 <div id="rbf-tour-dates-list">
                     <?php foreach(get_field("tour") as $tour) : ?>
                         <div class="rbf-tour-dates-tour-container">
-                            <h1 class="rbf-tour-dates-tour-name"><span><?php echo $tour["tour_name"]; ?></span>
-                                <?php if($tour["cancelled"] || $tour["postponed"]) : ?>
-                                    <span class="rbf-tour-dates-tour-cancelled-postponed"></span>
-                                <?php endif; ?>
+                            <h1 class="rbf-tour-dates-tour-name-container">
+                                <span class="rbf-tour-dates-tour-name"><?php echo $tour["tour_name"]; ?>
+                                    <?php if($tour["cancelled"] || $tour["postponed"]) : ?>
+                                        <span class="rbf-tour-dates-tour-cancelled-postponed
+                                            <?php
+                                                $tourTag = "";
+                                                if($tour["cancelled"]) {
+                                                    echo "cancelled";
+                                                    $tourTag = "CANCELLED";
+                                                } else if($tour["postponed"]) {
+                                                    echo "postponed";
+                                                    $tourTag = "POSTPONED";
+                                                }
+                                                ?>"><?php echo $tourTag; ?></span>
+                                    <?php endif; ?>
+                                </span>
                             </h1>
+                            <?php if(($tour["cancelled"] || $tour["postponed"]) && $tour["message"]) : ?>
+                                <div class="rbf-tour-dates-tour-message"><?php print_r($tour["message"]); ?></div>
+                            <?php endif; ?>
                             <div class="row">
                                 <div class="rbf-tour-dates-tour-event-photo col-md-4">
+                                     <?php if($tour["cancelled"] || $tour["postponed"]) : ?>
+                                        <span class="rbf-tour-dates-tour-cancelled-postponed-poster
+                                            <?php
+                                                $tourTag = "";
+                                                if($tour["cancelled"]) {
+                                                    echo "cancelled";
+                                                    $tourTag = "CANCELLED";
+                                                } else if($tour["postponed"]) {
+                                                    echo "postponed";
+                                                    $tourTag = "POSTPONED";
+                                                }
+                                                ?>"><?php echo $tourTag; ?></span>
+                                    <?php endif; ?>
                                     <img src="<?php echo $tour["photo"]; ?>" />
                                 </div>
                                 <div class="rbf-tour-dates-tour-events-list col-md-8">
