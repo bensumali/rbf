@@ -48,6 +48,9 @@ body {
     margin-top: 10px;
     width: 200px;
 }
+#rbf-header-logo > a:hover {
+    text-decoration: none;
+}
 #menu-main-nav {
     list-style: none;
     margin: 10px 0px;
@@ -216,6 +219,7 @@ body {
 .rbf-tour-dates-event-date {
     font-weight: bold;
     min-width: 100px;
+    position: relative;
     text-transform: uppercase;
     width: 15%;
 }
@@ -272,6 +276,44 @@ body {
 
     animation-name: tickets-rsvp-button-hover;
     animation-duration: 0.2s;
+}
+.rbf-tour-dates-event-date-changed-cancelled-sold-out {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    font-size: 8px;
+    line-height: 20px;
+    position: absolute;
+    text-align: center;
+    top: 24px;
+    width: 80%;
+}
+.rbf-tour-dates-event-date-changed-cancelled-sold-out.date-changed, .rbf-tour-dates-event-date-changed-cancelled-sold-out.date-changed.sold-out, .rbf-tour-dates-event-date-changed-cancelled-sold-out.cancelled, .rbf-tour-dates-event-date-changed-cancelled-sold-out.sold-out {
+    transform: rotate(-20deg);
+}
+.rbf-tour-dates-event-date-changed-cancelled-sold-out.cancelled, .rbf-tour-dates-event-date-changed-cancelled-sold-out.cancelled {
+    transform: rotate(20deg);
+}
+.rbf-tour-dates-event-date-changed-cancelled-sold-out.date-changed {
+    background-color: #f8f100;
+    color: black;
+}
+.rbf-tour-dates-event-date-changed-cancelled-sold-out.date-changed {
+    background-color: #f8f100 !important;
+    color: black !important;
+}
+.rbf-tour-dates-event-date-changed-cancelled-sold-out.date-changed.sold-out {
+    width: 115px !important;
+}
+.rbf-tour-dates-event-date-changed-cancelled-sold-out.cancelled, .rbf-tour-dates-event-date-changed-cancelled-sold-out.sold-out {
+    background-color: #E61E51;
+    color: white;
+}
+.rbf-tour-dates-event-message {
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+.rbf-tour-dates-event-message > p:last-child {
+    margin-bottom: 0px;
 }
 @media screen and (min-width: 805px) {
     #menu-main-nav > li {

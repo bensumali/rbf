@@ -40,7 +40,11 @@
                 <div id="rbf-tour-dates-list">
                     <?php foreach(get_field("tour") as $tour) : ?>
                         <div class="rbf-tour-dates-tour-container">
-                            <h1 class="rbf-tour-dates-tour-name"><?php echo $tour["tour_name"]; ?></h1>
+                            <h1 class="rbf-tour-dates-tour-name"><span><?php echo $tour["tour_name"]; ?></span>
+                                <?php if($tour["cancelled"] || $tour["postponed"]) : ?>
+                                    <span class="rbf-tour-dates-tour-cancelled-postponed"></span>
+                                <?php endif; ?>
+                            </h1>
                             <div class="row">
                                 <div class="rbf-tour-dates-tour-event-photo col-md-4">
                                     <img src="<?php echo $tour["photo"]; ?>" />
@@ -49,6 +53,29 @@
                                     <?php foreach($tour["events"] as $event) : ?>
                                         <div class="rbf-tour-dates-event-container">
                                             <div class="rbf-tour-dates-event-date">
+                                                <?php if($event["cancelled"] || $event["date_changed"] || $event["sold_out"]) : ?>
+                                                    <div class="rbf-tour-dates-event-date-changed-cancelled-sold-out
+                                                        <?php
+                                                            $message = "";
+                                                            if($event["cancelled"]) {
+                                                                $message = 'CANCELLED';
+                                                                echo 'cancelled';
+                                                            }
+                                                            else if($event["date_changed"]) {
+                                                                $message = 'DATE CHANGED';
+                                                                echo 'date-changed';
+                                                            }
+                                                            if($event["sold_out"]) {
+                                                                if($event["date_changed"]) {
+                                                                    $message .= " - ";
+                                                                }
+                                                                $message .= "SOLD OUT";
+                                                                echo " sold-out";
+                                                            }
+                                                        ?>">
+                                                        <?php echo $message; ?>
+                                                    </div>
+                                                <?php endif; ?>
                                                 <?php $dateArray = explode(" ", $event["date"]);?>
                                                 <div class="rbf-tour-dates-event-date-date"><?php echo $dateArray[1]; ?></div>
                                                 <div class="rbf-tour-dates-event-date-month-year">
@@ -64,11 +91,18 @@
                                                 <div class="rbf-tour-dates-event-venue"><?php echo $event["venue"]; ?></div>
                                                 <div class="rbf-tour-dates-event-city-state"><?php echo $event["city"]; ?>, <?php echo $event["state"]; ?></div>
                                             </div>
-                                            <div class="rbf-tour-dates-event-links-container">
-                                                <?php if($tickets = $event["link_tickets"]) : ?><a href="<?php echo $tickets; ?>">Tickets</a><?php endif; ?>
-                                                <?php if($rsvp = $event["link_rsvp"]) : ?><a href="<?php echo $rsvp; ?>">RSVP</a><?php endif; ?>
-                                            </div>
+                                            <?php if(!$event["cancelled"] && !$event["sold_out"]) : ?>
+                                                <div class="rbf-tour-dates-event-links-container">
+                                                    <?php if($tickets = $event["link_tickets"]) : ?><a href="<?php echo $tickets; ?>">Tickets</a><?php endif; ?>
+                                                    <?php if($rsvp = $event["link_rsvp"]) : ?><a href="<?php echo $rsvp; ?>">RSVP</a><?php endif; ?>
+                                                </div>
+                                            <?php endif; ?>
                                         </div>
+                                        <?php if($event["message"] && ($event["cancelled"] || $event["sold_out"] || $event["date_changed"])) : ?>
+                                            <div class="rbf-tour-dates-event-message">
+                                                <?php print_r($event["message"]); ?>
+                                            </div>
+                                        <?php endif; ?>
                                     <?php endforeach; ?>
                                 </div>
                             </div>
