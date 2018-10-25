@@ -1,0 +1,373 @@
+/*
+Theme Name: Reel Big Fish
+Author: Ben Sumali
+Description: Theme for the band "Reel Big Fish". I really hope they like it ;__;
+Version: 2.0.0
+Tags: bootstrap, jquery
+*/
+
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes tickets-rsvp-button-hover {
+    0%   {transform: rotate(0deg);}
+    25%  {transform: rotate(-5deg);}
+    50%  {transform: rotate(5deg);}
+    75%  {transform: rotate(-5deg);}
+    100% {transform: rotate(5deg);}
+}
+
+/* Standard syntax */
+@keyframes tickets-rsvp-button-hover {
+    0%   {transform: rotate(0deg);}
+    25%  {transform: rotate(-5deg);}
+    50%  {transform: rotate(5deg);}
+    75%  {transform: rotate(-5deg);}
+    100% {transform: rotate(5deg);}
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0px;
+}
+#rbf-nav-main-container {
+    height: 70px;
+    margin: 0px auto;
+    padding: 0px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+#rbf-nav-links-container, #menu-main-nav, .menu-main-nav-container, #rbf-nav-social-container {
+    display: inline-block;
+    vertical-align: top;
+}
+#menu-main-nav {
+    height: 100%;
+}
+#rbf-header-logo > a > img {
+    margin-top: 10px;
+    width: 200px;
+}
+#menu-main-nav {
+    list-style: none;
+    margin: 10px 0px;
+    padding: 0px;
+}
+
+#menu-main-nav > li > a {
+    color: white;
+    padding: 13px 10px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+#menu-main-nav > li > a:hover, #menu-main-nav > li.current-menu-item > a {
+    color: #f8f100;
+    text-decoration: none;
+}
+#rbf-main-content-container {
+    position: relative;
+}
+#rbf-homepage-background-video-container {
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+}
+#rbf-homepage-album-overlay-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+#rbf-homepage-background-video-container > video {
+    min-height: 100vh;
+    min-width: 100vw;
+    position: absolute;
+    width: auto;
+}
+#rbf-homepage-album-cover-aligner {
+    bottom: 10px;
+    position: absolute;
+    width: 100%;
+}
+#rbf-homepage-album-cover-container {
+    background-color: rgba(0,0,0,0.5);
+    margin: 0px auto;
+    padding: 15px;
+
+    max-width: 500px;
+}
+#rbf-homepage-album-cover-image {
+    height: 100%;
+}
+#rbf-homepage-album-cover-image > img {
+    height: 200px;
+    width: 200px;
+}
+#rbf-homepage-album-message {
+    color: white;
+    font-weight: bold;
+    padding-left: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 265px;
+}
+#rbf-homepage-album-message-text {
+    font-size: 20px;
+}
+#rbf-homepage-album-message-buttons > a {
+    border: 1px solid white;
+    color: white;
+    display: block;
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 3px;
+}
+#rbf-homepage-album-message-buttons > a:hover {
+    background-color: #f8f100;
+    border-color: #f8f100;
+    color: black;
+    text-decoration: none;
+}
+#rbf-nav-main-mobile-button {
+    background-color: transparent;
+    border: 0px;
+    display: inline-block;
+    float: right;
+    margin-top: 15px;
+    padding: 6px 12px;
+    width: 59px;
+    vertical-align: middle;
+
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+#rbf-nav-main-mobile-button:focus {
+    outline: none;
+}
+#rbf-nav-main-mobile-button > div {
+    background-color: white;
+    display: block;
+    width: 100%;
+    height: 4px;
+    margin-bottom: 7px;
+    border-radius: 1px;
+
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+#rbf-nav-social-container > span {
+    background-color: white;
+    border-radius: 100%;
+    margin: 0px 5px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 2px;
+}
+.rbf-band-member-container {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    color: #E61E51;
+    text-align: center;
+    text-transform: uppercase;
+}
+.rbf-band-member-photo > img {
+    border-radius: 100%;
+    width: 100%;
+}
+.rbf-band-member-position {
+    text-transform: lowercase;
+}
+
+.rbf-band-member-name-first {
+    font-size: 24px;
+    font-weight: 700;
+    height: 30px;
+}
+.rbf-band-member-name-last {
+    font-weight: 600;
+}
+.rbf-band-member-position {
+    font-size: 12px;
+}
+#rbf-band-photo > img {
+    width: 100%;
+}
+#rbf-band-bio-container {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.rbf-tour-dates-event-date, .rbf-tour-dates-event-location, .rbf-tour-dates-event-links-container {
+    display: inline-block;
+}
+.rbf-tour-dates-event-container {
+    margin-bottom: 20px;
+}
+.rbf-tour-dates-event-date {
+    font-weight: bold;
+    min-width: 100px;
+    text-transform: uppercase;
+    width: 15%;
+}
+
+.rbf-tour-dates-event-date > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+.rbf-tour-dates-event-date-date {
+    font-size: 40px;
+}
+.rbf-tour-dates-event-date-month-year > div {
+    color: #E61E51;
+    line-height: 18px;
+}
+.rbf-tour-dates-event-venue {
+    font-size: 24px;
+}
+.rbf-tour-dates-event-city-state {
+    text-transform: uppercase;
+}
+.rbf-tour-dates-event-container > div {
+    vertical-align: top;
+}
+.rbf-tour-dates-tour-event-photo > img {
+    width: 100%;
+}
+.rbf-tour-dates-tour-name {
+    font-weight: 800;
+    text-transform: uppercase;
+}
+.rbf-tour-dates-tour-container {
+    margin-bottom: 50px;
+}
+.rbf-tour-dates-event-links-container > a {
+    border: 1px solid #E61E51;
+    color: #E61E51;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+
+    -webkit-transition: all 0.2;
+    -moz-transition: all 0.2;
+    -ms-transition: all 0.2;
+    -o-transition: all 0.2;
+    transition: all 0.2;
+}
+.rbf-tour-dates-event-links-container > a:hover {
+    background-color: #E61E51;
+    color: white;
+    text-decoration: none;
+
+    animation-name: tickets-rsvp-button-hover;
+    animation-duration: 0.2s;
+}
+@media screen and (min-width: 805px) {
+    #menu-main-nav > li {
+        height: 100%;
+    }
+    #rbf-nav-main-mobile-button {
+        display: none;
+    }
+    #menu-main-nav > li {
+        display: inline-block;
+    }
+    #rbf-nav-main-container {
+
+    }
+    #rbf-nav-links-container {
+        width: calc(100vw - 245px);
+    }
+    #rbf-nav-social-container {
+        float: right;
+        margin-top: 13px;
+    }
+    .menu-main-nav-container {
+        height: 100%;
+    }
+    #rbf-homepage-album-cover-image, #rbf-homepage-album-message {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+@media screen and (min-width: 992px) {
+    .rbf-tour-dates-event-location {
+        width: calc(100% - 270px);
+    }
+    .rbf-tour-dates-event-links-container > a {
+        margin-top: 10px;
+        padding: 10px;
+    }
+}
+@media screen and (max-width: 991px) {
+    .rbf-tour-dates-event-location {
+        width: calc(100% - 193px);
+    }
+    .rbf-tour-dates-event-links-container > a {
+        display: block;
+        margin-bottom: 10px;
+        padding: 3px 10px;
+    }
+}
+@media screen and (max-width: 804px) {
+    #rbf-nav-main-mobile-button {
+        display: inline-block;
+    }
+    #rbf-nav-links-container {
+        background-color: #22d2d7;
+        display: none;
+        height: 100vh;
+        left: 0;
+        opacity: 0;
+        padding-top: 135px;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: -1;
+    }
+    #menu-main-nav > li {
+        display: block;
+        width: 100vw;
+    }
+    #menu-main-nav > li > a {
+        font-size: 24px;
+        font-weight: 600;
+        padding-left: 30px;
+        width: 100%;
+    }
+    #rbf-nav-social-container {
+        margin-left: 25px;
+    }
+    #rbf-homepage-album-cover-image, #rbf-homepage-album-message {
+        text-align: center;
+    }
+    #rbf-homepage-album-message {
+        margin: 10px auto 0px auto;
+        max-width: 175px;
+        padding: 0px;
+    }
+    .rbf-band-member-photo > img {
+        max-width: 250px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .rbf-tour-dates-tour-event-photo {
+        margin-bottom: 20px;
+    }
+}
+@media screen and (max-width: 472px) {
+    .rbf-tour-dates-event-location {
+        width: 180px;
+    }
+}
