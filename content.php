@@ -36,26 +36,44 @@
     <?php endif;?>
     <?php if(!is_front_page()) : ?>
         <div class="container">
+            <?php if(is_page("music-videos")) : ?>
+              <?php $videos = get_field("videos");
+                if(count($videos) > 0 ) :?>
+                  <h1 class="rbf-music-videos-header">FEATURED VIDEOS</h1>
+                  <div class="rbf-music-videos-featured-videos-list">
+                    <?php foreach($videos as $video) : ?>
+                        <?php echo $video["youtube_video"]; ?>
+                    <?php endforeach; ?>
+                  </div>
+              <?php endif; ?>
+              <?php $albums = get_field("music")["album"];
+                if(count($albums) > 0) : ?>
+                  <h1 class="rbf-music-videos-header">ALBUMS</h1>
+                  <div class="rbf-music-videos-albums-list">
+                    <?php foreach($albums as $album) : ?>
+                        <div class="rbf-music-videos-album-container row">
+                          <div class="rbf-music-videos-album-cover col-md-5">
+                            <img src="<?php echo $album["cover"]; ?>" />
+                          </div>
+                          <div class="rbf-music-videos-album-tracks-list col-md-6">
+                            <?php foreach($album["track_list"]["song"] as $track) : ?>
+                              <div class="rbf-music-videos-album-track-container">
+                                <div class="rbf-music-videos-album-track-title"><?php echo $track["title"]; ?></div>
+                                <div class="rbf-music-videos-album-track-duration"><?php echo $track["length"]; ?></div>
+                              </div>
+                            <?php endforeach; ?>
+                          </div>
+                        </div>
+                    <?php endforeach; ?>
+                  </div>
+              <?php endif; ?>
+            <?php endif; ?>
             <?php if(is_page("tour-dates")) : ?>
                 <div id="rbf-tour-dates-list">
                     <?php foreach(get_field("tour") as $tour) : ?>
                         <div class="rbf-tour-dates-tour-container">
                             <h1 class="rbf-tour-dates-tour-name-container">
-                                <span class="rbf-tour-dates-tour-name"><?php echo $tour["tour_name"]; ?>
-                                    <?php if($tour["cancelled"] || $tour["postponed"]) : ?>
-                                        <span class="rbf-tour-dates-tour-cancelled-postponed
-                                            <?php
-                                                $tourTag = "";
-                                                if($tour["cancelled"]) {
-                                                    echo "cancelled";
-                                                    $tourTag = "CANCELLED";
-                                                } else if($tour["postponed"]) {
-                                                    echo "postponed";
-                                                    $tourTag = "POSTPONED";
-                                                }
-                                                ?>"><?php echo $tourTag; ?></span>
-                                    <?php endif; ?>
-                                </span>
+                                <span class="rbf-tour-dates-tour-name"><?php echo $tour["tour_name"]; ?></span>
                             </h1>
                             <?php if(($tour["cancelled"] || $tour["postponed"]) && $tour["message"]) : ?>
                                 <div class="rbf-tour-dates-tour-message"><?php print_r($tour["message"]); ?></div>
@@ -175,4 +193,3 @@
     <?php endif; ?>
 
 <?php endwhile; ?>
-

@@ -90,7 +90,6 @@ body {
     width: auto;
 }
 #rbf-homepage-album-cover-aligner {
-    bottom: 10px;
     position: absolute;
     width: 100%;
 }
@@ -168,7 +167,7 @@ body {
 }
 #rbf-nav-social-container > span {
     background-color: white;
-    border-radius: 100%;
+    border-radius: 30%;
     margin: 0px 5px;
     width: 40px;
     height: 40px;
@@ -209,6 +208,9 @@ body {
 #rbf-band-bio-container {
     padding-bottom: 20px;
     padding-top: 20px;
+}
+.rbf-tour-dates-tour-name-container {
+    margin-bottom: 20px;
 }
 .rbf-tour-dates-event-date, .rbf-tour-dates-event-location, .rbf-tour-dates-event-links-container {
     display: inline-block;
@@ -265,10 +267,14 @@ body {
     vertical-align: top;
 }
 
-.rbf-tour-dates-tour-name {
-    display: inline-block;
+.rbf-tour-dates-tour-name-container {
+
     font-weight: 800;
-    position: relative;
+    background-color: #E61E51;
+    color: white;
+    font-size: 24px;
+    font-weight: 800;
+    padding: 10px;
     text-transform: uppercase;
 }
 .rbf-tour-dates-tour-cancelled-postponed {
@@ -374,7 +380,37 @@ body {
 .rbf-tour-dates-event-message > p:last-child {
     margin-bottom: 0px;
 }
+.rbf-music-videos-header {
+  background-color: #E61E51;
+  color: white;
+  font-size: 24px;
+  font-weight: 800;
+  padding: 10px;
+}
+.rbf-music-videos-featured-videos-list {
+  white-space: nowrap;
+  width: 100%;
+  overflow-x: scroll;
+}
+.rbf-music-videos-album-cover > img {
+  width: 100%;
+}
+.rbf-music-videos-album-track-container {
+  overflow: hidden;
+}
+.rbf-music-videos-album-track-title, .rbf-music-videos-album-track-duration {
+  display: inline-block;
+}
+.rbf-music-videos-album-track-title {
+  float: left;
+}
+.rbf-music-videos-album-track-duration {
+  float: right;
+}
 @media screen and (min-width: 805px) {
+    #rbf-homepage-album-cover-aligner {
+        bottom: 10px;
+    }
     #menu-main-nav > li {
         height: 100%;
     }
@@ -422,6 +458,9 @@ body {
     }
 }
 @media screen and (max-width: 804px) {
+    #rbf-homepage-album-cover-aligner {
+        top: 140px;
+    }
     #rbf-nav-main-mobile-button {
         display: inline-block;
     }
@@ -465,10 +504,5 @@ body {
 @media screen and (max-width: 767px) {
     .rbf-tour-dates-tour-event-photo {
         margin-bottom: 20px;
-    }
-}
-@media screen and (max-width: 472px) {
-    .rbf-tour-dates-event-location {
-        width: 180px;
     }
 }
